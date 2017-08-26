@@ -14,6 +14,7 @@
     </div>
 
     <v-ons-list-title>Groups</v-ons-list-title>
+    <v-ons-progress-bar v-if="groupsIsLoading" indeterminate></v-ons-progress-bar>
     <v-ons-list>
       <v-ons-list-item v-for="group in groups" :key="group.id">
         <div class="left"><v-ons-icon fixed-width icon="fa-book"></v-ons-icon></div>
@@ -89,7 +90,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      groups: 'allGroups'
+      groups: 'allGroups',
+      groupsIsLoading: 'allGroupsIsLoading'
     })
   },
   methods: {
